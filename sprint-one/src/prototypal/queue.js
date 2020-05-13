@@ -1,5 +1,5 @@
 var Queue = function() {
-  var someInstance = Object.create(Queue.queueMethods);
+  var someInstance = Object.create(queueMethods);
   var storage = {};
   someInstance.storage = storage;
   someInstance.curr = 0;
@@ -7,8 +7,7 @@ var Queue = function() {
 
   return someInstance;
 };
-Queue.queueMethods = {};
-var queueMethods = Queue.queueMethods;
+var queueMethods = {};
 queueMethods.enqueue = function(value){
   this.storage[this.curr] = value;
   this.curr ++;
