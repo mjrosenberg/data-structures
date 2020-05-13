@@ -1,8 +1,8 @@
 var Queue = function() {
 
   this.storage = {};
-  this.curr = 0; //tracks the current numeric key
-  this.start = 0; //tracks the current front of the keys
+  this.curr = 0;
+  this.start = 0;
 };
 
 var queueMethods = {};

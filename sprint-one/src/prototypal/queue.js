@@ -1,10 +1,9 @@
 var Queue = function() {
   var someInstance = Object.create(Queue.queueMethods);
-  //up here is where im getting the failed test bc it wants me to use Queue.queueMethods rather than thi.queueMethods
   var storage = {};
   someInstance.storage = storage;
-  someInstance.curr = 0; //tracks the current numeric key
-  someInstance.start = 0; //tracks the current front of the keys
+  someInstance.curr = 0;
+  someInstance.start = 0;
 
   return someInstance;
 };
