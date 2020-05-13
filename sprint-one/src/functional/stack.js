@@ -32,12 +32,7 @@ var Stack = function() {
   someInstance.size = function() {
     return Math.max(someInstance.length,0);
   };
-  //console.log(someInstance);
-  //console.log(storage);
+
   return someInstance;
 };
 
-var s = Stack();
-s.push('a');
-s.push('b');
-console.log(s);
