@@ -3,14 +3,9 @@ var Queue = function() {
   // but try not not reference your old code in writing the new style
   var someInstance = {};
   var storage = {};
-
-  //someInstance.enqueue = this
   someInstance.storage = storage;
-  someInstance.curr = 0; //tracks the current numeric key
-  someInstance.start = 0; //tracks the current front of the keys
-  // someInstance.pop = queueMethods.push(this);
-  // someInstance.push = queueMethods.pop;
-  //someInstance.size;
+  someInstance.curr = 0;
+  someInstance.start = 0;
   _.extend(someInstance, queueMethods);
   return someInstance;
 };

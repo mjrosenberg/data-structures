@@ -3,14 +3,8 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   var someInstance = {};
   var storage = {};
-
-  //someInstance.enqueue = this
   someInstance.storage = storage;
-  someInstance.length = 0; //tracks the current numeric key
-  //someInstance.start = 0; //tracks the current front of the keys
-  // someInstance.pop = queueMethods.push(this);
-  // someInstance.push = queueMethods.pop;
-  //someInstance.size;
+  someInstance.length = 0;
   _.extend(someInstance, stackMethods);
   return someInstance;
 };
