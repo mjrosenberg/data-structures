@@ -11,7 +11,7 @@ HashTable.prototype.insert = function(k, v) {
   //var bucket = this._storage[index]; this broke this for some reason idk
   if (this._storage[index] === undefined){
     this._storage[index] = [[k,v]];
-  } else{
+  } else {
     //loop is check if we need to overwrite a key
     for (var i = 0; i < this._storage[index].length; i++){
       if (this._storage[index][i][0] === k){
@@ -20,12 +20,8 @@ HashTable.prototype.insert = function(k, v) {
       }
     }
     this._storage[index].push([k,v]);
-    // this.count += 1;
-    // if ((this.count/this._limit) > 0.75){
-    //   this.double();
-    //   //grow the array
-    // }
   }
+
   this.count += 1;
   if ((this.count/this._limit) > 0.75){
     console.log("hittin double function")
@@ -34,9 +30,13 @@ HashTable.prototype.insert = function(k, v) {
 };
 
 HashTable.prototype.retrieve = function(k) {
+
   var index = getIndexBelowMaxForKey(k, this._limit);
+  if (this._storage[index] === undefined){
+    return undefined;
+  }
   var bucket = this._storage[index];
-  //console.log(bucket);
+  console.log("bucket in retrieve: ", bucket);
   for (var i = 0; i < bucket.length; i++){
     if (bucket[i][0] === k){
       return bucket[i][1];
@@ -64,18 +64,18 @@ HashTable.prototype.double = function(){
   var doubleLength = this._limit * 2;
   this._limit = doubleLength;
   for (var i  in this._storage){
-    console.log("in first for loop (showing bucket) " , this._storage[i]);
+    //console.log("in first for loop (showing bucket) " , this._storage[i]);
     let loopcounter = i;
     var bucket = this._storage[i];
     if (!Array.isArray(bucket)){
       break;
     }
     for (j = 0; j < this._storage[i].length; j++){
-      console.log("in second for loop");
+      //console.log("in second for loop");
       var key = this._storage[i][j][0];
       var value = this._storage[i][j][1];
       var newIndex = getIndexBelowMaxForKey(key, doubleLength);
-      console.log("newIndex: ",newIndex);
+      //console.log("newIndex: ",newIndex);
       if (newArray[newIndex] === undefined){
         newArray[newIndex] = [[key,value]];
       } else{
@@ -92,18 +92,18 @@ HashTable.prototype.half = function(){
   var halfLength = this._limit / 2;
   this._limit = halfLength;
   for (var i  in this._storage){
-    console.log("in first for loop (showing bucket) " , this._storage[i]);
+    //console.log("in first for loop (showing bucket) " , this._storage[i]);
     let loopcounter = i;
     var bucket = this._storage[i];
     if (!Array.isArray(bucket)){
       break;
     }
     for (j = 0; j < this._storage[i].length; j++){
-      console.log("in second for loop");
+      //console.log("in second for loop");
       var key = this._storage[i][j][0];
       var value = this._storage[i][j][1];
       var newIndex = getIndexBelowMaxForKey(key, halfLength);
-      console.log("newIndex: ",newIndex);
+      //console.log("newIndex: ",newIndex);
       if (newArray[newIndex] === undefined){
         newArray[newIndex] = [[key,value]];
       } else{
@@ -115,15 +115,13 @@ HashTable.prototype.half = function(){
 }
 
 
-
-
-
-
-
-
-
 /*
- * Complexity: What is the time complexity of the above functions?
- */
+* Complexity: What is the time complexity of the above functions?
+*
+*  insert() -> Worst Case Linear, Most often Case Constant time
+*  retrieve() -> Worst Case Linear, Most often Case Constant time
+*  remove() -> Worst Case Linear, Most often Case Constant time
+*
+*/
 
 

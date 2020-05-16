@@ -49,6 +49,6 @@ treeMethods.removeFromParent = function(){
 
 /*
  * Complexity: What is the time complexity of the above functions?
- *  addCHild() => Constant
+ *  addChild() => Constant
  *  contains() => O(n)
  */
