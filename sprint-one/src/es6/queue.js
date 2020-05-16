@@ -13,8 +13,9 @@ class Queue {
 
   dequeue() {
     var temp = this.storage[this.start];
-    this.storage[this.start] = undefined;
+    delete this.storage[this.start];
     this.start ++;
+    //this.size()++;
     return temp;
   }
 

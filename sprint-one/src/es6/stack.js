@@ -13,9 +13,9 @@ class Stack {
       for (var i = this.length; i >= 0; i--){
         var temp = this.storage[i];
         this.storage[i+1] = temp;
-    }
-    this.length+= 1;
-    this.storage[0] = value;
+      }
+      this.length+= 1;
+      this.storage[0] = value;
     }
   }
   pop(){
