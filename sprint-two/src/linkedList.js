@@ -33,8 +33,24 @@ var LinkedList = function() {
     return false;
   };
 
+  list.addToMiddle = function(index, value){
+    var i = 0;
+    var current = list.head;
+    while (i < index - 1){
+      current = current.next;
+      i++;
+    }
+    var newNode = Node(value);
+    var temp = current.next;
+    current.next =  newNode;
+    newNode.next = temp.next;
+
+  }
+
   return list;
-};
+  };
+
+
 
 var Node = function(value) {
   var node = {};

@@ -47,8 +47,14 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should get index within range of array', function() {
+    var i1 = getIndexBelowMaxForKey('Steven',8);
+    expect(i1).to.be.below(8);
+  });
+
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
-  xit ('should double in size when needed', function() {
+  it ('should double in size when needed', function() {
     _.each(people, function(person) {
       var firstName = person[0];
       var lastName = person[1];
@@ -58,7 +64,7 @@ describe('hashTable', function() {
     expect(hashTable._limit).to.equal(16);
   });
 
-  xit ('should halve in size when needed', function() {
+  it ('should halve in size when needed', function() {
     _.each(people, function(person) {
       var firstName = person[0];
       var lastName = person[1];

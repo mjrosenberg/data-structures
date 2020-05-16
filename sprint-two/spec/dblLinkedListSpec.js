@@ -1,8 +1,8 @@
-describe('linkedList', function() {
+describe('doubly-linked-list', function() {
   var linkedList;
 
   beforeEach(function() {
-    linkedList = LinkedList();
+    linkedList = dblLinked();
   });
 
   it('should have a head and tail', function() {
@@ -51,15 +51,46 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
-  // add more tests here to test the functionality of linkedList
+  //advanced
 
-  it('should be able to add a value in the middle', function() {
+  it('tail should have previous property', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
-    linkedList.addToMiddle(1, 3);
-    expect(linkedList.contains(3)).to.equal(true);
+    expect(linkedList.tail.value).to.equal(5);
+    expect(linkedList.tail.previous.value).to.equal(4);
   });
 
+  it('head should not have previous pointer', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    // expect(linkedList.head.value).to.equal(5);
+    //expect(linkedList.head.previous.value).to.equal(4);
+    expect(linkedList.head.previous).to.equal(null);
+
+  });
+
+  it('should add new head to front', function() {
+    linkedList.addToTail(4);
+    linkedList.addToHead(5);
+    //linkedList.removeHead();
+    // expect(linkedList.head.value).to.equal(5);
+    expect(linkedList.head.value).to.equal(5);
+  });
+
+
+  it('should return the value of the former tail when removeTail is called', function() {
+    linkedList.addToTail(4);
+    expect(linkedList.removeTail()).to.equal(4);
+  });
+
+  it('tail should not have next pointer', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeTail();
+    expect(linkedList.tail.next).to.equal(null);
+
+  });
 
 
 
