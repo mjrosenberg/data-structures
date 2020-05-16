@@ -15,7 +15,6 @@ class Queue {
     var temp = this.storage[this.start];
     delete this.storage[this.start];
     this.start ++;
-    //this.size()++;
     return temp;
   }
 
